@@ -1,6 +1,7 @@
 const express = require("express");
 const router = require("./router/auth-route");
 const controllers = require("./controller/auth-controller");
+const connectdb = require("./utils/db");
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.get("/", (req, res) => {
 app.route("/home").get(controllers.home);
 app.route("/register").get(controllers.register);
 
-app.listen(5000, () => {
-  console.log("server listen at localhost:5000");
+connectdb().then(() => {
+  app.listen(5000, () => {
+    console.log("server listen at localhost:5000");
+  });
 });
