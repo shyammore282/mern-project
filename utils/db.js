@@ -1,13 +1,20 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+// const URL = "mongodb://127.0.0.1:27017/mernp";
 
-// const URL = "mongodb://127.0.0.1:27017/mernAdmin";
+dotenv.config();
 
-const URI =
-  "mongodb+srv://shyam_more:shyam_moure@cluster0.gp79q.mongodb.net/mern_admin?retryWrites=true&w=majority&appName=Cluster0";
+// const user = process.env.MONGOBD_USER;
+// const password = process.env.MONGODB_PASSWORD;
+// const database = process.env.MONGOBD_DATABASE;
+
+const URL = process.env.MONGODB_URL;
+
+// const URIR = `mongodb+srv://${user}:${password}cluster0.gp79q.mongodb.net/${database}?retryWrites=true&w=majority`;
 
 const connectdb = async () => {
   try {
-    await mongoose.connect(URI);
+    await mongoose.connect(URL);
     console.log("connect successfull");
   } catch (error) {
     console.error("error");
