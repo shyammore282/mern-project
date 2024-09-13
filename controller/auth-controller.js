@@ -13,4 +13,5 @@ const register = async (req, res) => {
     res.status(404).send({ msg: "not found" });
   }
 };
+
 module.exports = { home, register };
