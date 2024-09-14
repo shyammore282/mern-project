@@ -14,4 +14,12 @@ const register = async (req, res) => {
   }
 };
 
-module.exports = { home, register };
+const login = async (req, res) => {
+  try {
+    res.status(200).send("login using controllers");
+  } catch (error) {
+    res.status(404).send({ msg: "login error please try agian" });
+  }
+};
+
+module.exports = { home, register, login };
